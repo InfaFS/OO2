@@ -3,6 +3,9 @@ package infa;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.time.LocalDateTime;
+import java.time.Month;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 /**
@@ -21,36 +24,32 @@ public class AppTest
     @Test
     public void testToDoItem()
     {
-        ToDoItem toDoItem = new ToDoItem("Test");
-        toDoItem.addComment("Hola juliana!");
-        System.out.println(toDoItem.getComentario());
-        //toDoItem.workedTime(); //tira error
-        //toDoItem.togglePause(); //tira error
-        toDoItem.finish(); //imprime nada
-        toDoItem.start(); //esta en progress
+    LocalDateTime startDate = LocalDateTime.of(2024, Month.APRIL, 1, 0, 0);
+    LocalDateTime endDate = startDate.plusDays(10);
+    Excursion excursion = new Excursion("Excursion1",startDate, endDate, "La Plata", 100, 2, 4);
+    Usuario user1 = new Usuario("John", "Doe", "john.doe@example.com");
+    Usuario user2 = new Usuario("Jane", "Smith", "jane.smith@example.com");
+    Usuario user3 = new Usuario("Michael", "Johnson", "michael.johnson@example.com");
+    Usuario user4 = new Usuario("Emily", "Davis", "emily.davis@example.com");
+    
+    System.out.println(excursion.mostrarInfo());
+    excursion.inscribirUsuario(user1);
+    System.out.println(excursion.mostrarInfo());
+    //excursion.llevarACabo();
+    excursion.inscribirUsuario(user2);
 
-        toDoItem.addComment("Hola julianita!");
-        System.out.println(toDoItem.getComentario());
-        System.out.println(toDoItem.workedTime());
-        toDoItem.start(); //imprime nada
+    System.out.println(excursion.mostrarInfo());
+    excursion.inscribirUsuario(user3);
+    System.out.println(excursion.mostrarInfo());
+   // excursion.llevarACabo(); //esta despues la borro para ver cuando tiene cupo maximo
+    excursion.inscribirUsuario(user4);
 
-        toDoItem.togglePause();//esta en paused
-        toDoItem.addComment("Hola juti!");
-        System.out.println(toDoItem.getComentario());
-     
-        //imprime nada
-        System.out.println(toDoItem.workedTime());
+    System.out.println(excursion.mostrarInfo());
+    excursion.inscribirUsuario(user4);
+    excursion.inscribirUsuario(user4);
+    excursion.llevarACabo();
+    System.out.println(excursion.mostrarListaEspera());
 
-        toDoItem.togglePause();//esta en progress
-        System.out.println(toDoItem.workedTime());
-
-        toDoItem.finish(); //esta en finished
-        toDoItem.start(); //imprime nada
-        toDoItem.finish(); //imprime nada
-
-        toDoItem.addComment("hola!");
-        //toDoItem.togglePause(); //tira error
-        System.out.println(toDoItem.workedTime());
 
     }
 }
