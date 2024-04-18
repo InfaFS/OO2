@@ -3,7 +3,7 @@ package infa;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DatabaseRealAccessProxy {
+public class DatabaseRealAccessProxy implements DatabaseAccess {
     private String password;
     private DatabaseRealAccess databaseRealAccess;
     public DatabaseRealAccessProxy(DatabaseRealAccess databaseRealAccess, String password) {

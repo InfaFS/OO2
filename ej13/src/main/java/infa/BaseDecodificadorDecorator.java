@@ -1,5 +1,5 @@
 package infa;
-
+//hacer strategy
 import java.util.ArrayList;
 import java.util.List;
 

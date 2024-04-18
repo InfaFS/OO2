@@ -1,13 +1,13 @@
 package infa;
 
-public class Nombre extends Decorator {
+public class Nombre extends BaseDecorator {
     public Nombre(FileOO2 file) {
         super(file);
     }
 
     @Override
     public String prettyPrint() {
-        return file.prettyPrint() + "Nombre - ";
+        return super.prettyPrint() + " Nombre: " + file.getNombre();
     }
     
 }
