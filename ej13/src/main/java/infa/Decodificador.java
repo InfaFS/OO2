@@ -2,11 +2,13 @@ package infa;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class Decodificador implements DecodificadorI{
+public class Decodificador{
     private List<Pelicula> peliculasReproducidas;
     private List<Pelicula> peliculas;
-    private List<Pelicula> peliculasNoReproducidas;
+    private PeliculaStrategy estrategia;
+
     public Decodificador() {
         this.peliculas = new ArrayList<Pelicula>();
         this.peliculasReproducidas = new ArrayList<Pelicula>();
@@ -28,12 +30,19 @@ public class Decodificador implements DecodificadorI{
         return this.peliculasReproducidas;
     }
 
+    public List<Pelicula> getPeliculasNoReproducidas() {
+        return this.peliculas.stream()
+            .filter(pelicula -> !this.peliculasReproducidas.contains(pelicula))
+            .collect(Collectors.toList());
+    }
+
     public String sugerir(){
-        if (this.peliculas.isEmpty()){
-            return "No hay sugerencias disponibles.";
-        }
-        return "Sugerencias: \n";
+       return this.estrategia.preview(this.peliculas);
     }
     
+    public void setStrategy(PeliculaStrategy estrategia) {
+        this.estrategia = estrategia;
+    }
+
     
 }

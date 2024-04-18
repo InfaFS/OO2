@@ -44,13 +44,15 @@ public class AppTest
         decodificador.addPeliculaReproducida(Thor);
         decodificador.addPeliculaReproducida(Rocky);
 
-        NovedadDecorator novedad = new NovedadDecorator(decodificador);
-        System.out.println(novedad.sugerir());
-        similaridadDecorator similaridad = new similaridadDecorator(novedad);
-        System.out.println(similaridad.sugerir());
-        puntajeDecorator puntaje = new puntajeDecorator(similaridad);
-        System.out.println(puntaje.sugerir());
-        
+        puntajeStrategy puntaje = new puntajeStrategy();
+        decodificador.setStrategy(puntaje);
+        System.out.println(decodificador.sugerir());
+        novedadStrategy novedad = new novedadStrategy();
+        decodificador.setStrategy(novedad);
+        System.out.println(decodificador.sugerir());
+        similaridadStrategy similaridad = new similaridadStrategy(decodificador.getPeliculas());
+        decodificador.setStrategy(similaridad);
+        System.out.println(decodificador.sugerir());
         
     }
 
