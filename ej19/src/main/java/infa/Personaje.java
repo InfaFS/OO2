@@ -1,12 +1,15 @@
 package infa;
 
+import java.util.ArrayList;
+
 public class Personaje {
     private Armas arma;
     private Armadura armadura;
-    private Habilidades habilidades;
+    private ArrayList<Habilidades> habilidades;
     private int vida;
+  
 
-    public Personaje (Armas arma, Armadura armadura, Habilidades habilidades){
+    public Personaje (Armas arma, Armadura armadura, ArrayList<Habilidades> habilidades){
         this.arma = arma;
         this.armadura = armadura;
         this.habilidades = habilidades;
@@ -32,8 +35,10 @@ public class Personaje {
         }
     }   
 
-    public void usarHabilidadEspecial(){
-        this.habilidades.usarHabilidad();
+    public void usarHabilidades(){
+        for ( Habilidades habilidad : habilidades){
+            habilidad.usarHabilidad();
+        }
     }
 
     public int consultarVida(){
@@ -45,4 +50,5 @@ public class Personaje {
             return 0;
         }
     }
+
 }
