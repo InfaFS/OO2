@@ -18,7 +18,7 @@ public class Personaje {
 
     public void atacar(Personaje enemigo){
         if (this.vida > 0) {
-            enemigo.recibirAtaque(arma);
+            enemigo.recibirAtaque(this.arma);
         }
         else{
             System.out.println("El personaje esta muerto");

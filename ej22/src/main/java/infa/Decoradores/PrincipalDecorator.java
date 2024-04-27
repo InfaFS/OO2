@@ -1,4 +1,5 @@
 package infa.Decoradores;
+//decorator solo para funcionalidades
 
 import infa.Principal.Principal;
 

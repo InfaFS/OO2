@@ -4,7 +4,7 @@ public class Usuario {
     private Personaje pj;
 
     public void PvP(Personaje pjEnemigo){
-        pj.atacar(pjEnemigo);
+        this.pj.atacar(pjEnemigo);
     }
 
     public Personaje getPersonaje(){
