@@ -1,6 +1,8 @@
 package infa;
 
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 /**
@@ -18,15 +20,34 @@ public class AppTest
     @Test
     public void testGlobal()
     {
-        ClasicoCreator sandwichFactory = new ClasicoCreator();
-        sandwichFactory.orderSandwich();
-        VegetarianoCreator sandwichFactory2 = new VegetarianoCreator();
-        sandwichFactory2.orderSandwich();
-        VeganoCreator sandwichFactory3 = new VeganoCreator();
-        sandwichFactory3.orderSandwich();
-        SinTACCCreator sandwichFactory4 = new SinTACCCreator();
-        sandwichFactory4.orderSandwich();
+        SandwichDirector sandwichDirector = new SandwichDirector();
+        SinTACCBuilder SinTACCBuilder = new SinTACCBuilder();
+        VegetarianoBuilder VegetarianoBuilder = new VegetarianoBuilder();
+        VeganoBuilder VeganoBuilder = new VeganoBuilder();
+        ClasicoBuilder ClasicoBuilder = new ClasicoBuilder();
         
+        sandwichDirector.buildSandwich(SinTACCBuilder);
+        sandwichDirector.buildSandwich(VegetarianoBuilder);
+        sandwichDirector.buildSandwich(VeganoBuilder);
+        sandwichDirector.buildSandwich(ClasicoBuilder);
+
+        Sandwich sandwichSinTacc = SinTACCBuilder.getSandwich();
+        System.out.println(sandwichSinTacc.getListado());
+        assertEquals(618, sandwichSinTacc.getValorSandwich());
+
+        Sandwich sandwichVegetariano = VegetarianoBuilder.getSandwich();
+        System.out.println(sandwichVegetariano.getListado());
+        assertEquals(420, sandwichVegetariano.getValorSandwich());
+
+        Sandwich sandwichVegano = VeganoBuilder.getSandwich();
+        System.out.println(sandwichVegano.getListado());
+        assertEquals(620, sandwichVegano.getValorSandwich());
+
+        Sandwich sandwichClasico = ClasicoBuilder.getSandwich();
+        System.out.println(sandwichClasico.getListado());
+        assertEquals(500, sandwichClasico.getValorSandwich());
+
+    
     }
 
 
