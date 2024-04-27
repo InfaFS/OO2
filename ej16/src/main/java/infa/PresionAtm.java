@@ -9,24 +9,7 @@ public class PresionAtm extends Decorator {
 
     @Override
     public String displayData() {
-        return super.displayData() + "Presion: " + this.getPresion() + "atm";
+        return super.displayData() + "Presion: " + file.getPresion() + "atm";
     }
 
-    @Override
-    public double getTemperatura() {
-        return super.getTemperatura();
-    }
-    @Override
-    public double getPresion() {
-        return super.getPresion();
-    }
-    @Override
-    public double getRadiacionSolar() {
-        return super.getRadiacionSolar();
-    }
-
-    @Override
-    public ArrayList<Double> getTemperaturas(){
-        return super.getTemperaturas();
-    }
 }

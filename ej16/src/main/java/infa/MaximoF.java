@@ -13,23 +13,7 @@ public class MaximoF extends Decorator {
     }
 
     private double getMaximo() {
-        return super.getTemperaturas().stream().mapToDouble(t -> t).max().orElse(0.0);
+        return file.getTemperaturas().stream().mapToDouble(t -> t).max().orElse(0.0);
     }
-    @Override
-    public double getTemperatura() {
-        return super.getTemperatura();
-    }
-    @Override
-    public double getPresion() {
-        return super.getPresion();
-    }
-    @Override
-    public double getRadiacionSolar() {
-        return super.getRadiacionSolar();
-    }
-
-    @Override
-    public ArrayList<Double> getTemperaturas(){
-        return super.getTemperaturas();
-    }
+    
 }
