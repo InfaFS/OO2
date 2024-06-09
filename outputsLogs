@@ -1,0 +1,24 @@
+{ "message": "Aplicacion iniciada", "level": "INFO" }
+{ "message": "Like button clicked", "level": "INFO" }
+{ "message": "Like button clicked", "level": "INFO" }
+{ "message": "Like button clicked", "level": "INFO" }
+{ "message": "Like button clicked", "level": "INFO" }
+{ "message": "Like button clicked", "level": "INFO" }
+{ "message": "Like button clicked", "level": "INFO" }
+{ "message": "Like button clicked", "level": "INFO" }
+{ "message": "Like button clicked", "level": "INFO" }
+{ "message": "Like button clicked", "level": "INFO" }
+{ "message": "Like button clicked", "level": "INFO" }
+{ "message": "La cantidad de likes llegó a los 10", "level": "WARNING" }
+{ "message": "Dislike button clicked", "level": "INFO" }
+{ "message": "Dislike button clicked", "level": "INFO" }
+{ "message": "Dislike button clicked", "level": "INFO" }
+{ "message": "Dislike button clicked", "level": "INFO" }
+{ "message": "Dislike button clicked", "level": "INFO" }
+{ "message": "Dislike button clicked", "level": "INFO" }
+{ "message": "Dislike button clicked", "level": "INFO" }
+{ "message": "Dislike button clicked", "level": "INFO" }
+{ "message": "Dislike button clicked", "level": "INFO" }
+{ "message": "Dislike button clicked", "level": "INFO" }
+{ "message": "La cantidad de likes llegó a los 0", "level": "WARNING" }
+{ "message": "Featured checkbox clicked", "level": "INFO" }

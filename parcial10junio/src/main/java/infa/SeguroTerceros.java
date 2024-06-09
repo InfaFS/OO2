@@ -1,7 +1,7 @@
 package infa;
 
 public class SeguroTerceros extends Seguro {
-
+    
     public SeguroTerceros(Vehiculo vehiculo, Asegurado asegurado) {
         super(vehiculo,asegurado);
     }

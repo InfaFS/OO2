@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
 public class Vehiculo {
-    private Seguro seguro=null;
+    private Seguro seguro;
     private double valor;
     private int ocupantes;
     private LocalDate fechaAdiquision;
@@ -39,10 +39,4 @@ public class Vehiculo {
         this.seguro=seguro;
     }
 
-    public boolean tieneSeguro () {
-        if (this.seguro == null){
-            return false;
-        }
-        return true;
-    }
 }

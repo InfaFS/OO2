@@ -4,15 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MultiplesPolizas extends PromocionStrategy {
-
-    public double AplicarPromo(List<Vehiculo> vehiculos){
-        if (vehiculos.size() >= 2) {
-            return vehiculos.stream().mapToDouble(vehiculo -> AplicarDescuento(vehiculo)).sum(); 
+    private static final double diez_porciento = 0.1;
+    public double AplicarPromo(Asegurado asegurado){
+        if (asegurado.getVehiculos().size() > 2) {
+            return asegurado.getCostosSeguros() * diez_porciento;
         }
-        return vehiculos.stream().mapToDouble( vehiculo -> vehiculo.getCostoSeguro()).sum();
+        return 0;
     }
     
-    private double AplicarDescuento(Vehiculo vehiculo){
-        return vehiculo.getCostoSeguro() - vehiculo.getCostoSeguro() * 0.1;
-    }
+
 }

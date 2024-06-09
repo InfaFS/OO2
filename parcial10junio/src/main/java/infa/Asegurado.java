@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 public class Asegurado {
-
+    private static final double seguroDelConductor_precio = 100.0;
     private PromocionStrategy promo;
     private List<Vehiculo> vehiculos;
     private int edad;
@@ -15,7 +15,7 @@ public class Asegurado {
         this.edad=edad;
     }
     public double seguroDelConductor () {
-        return 100.0 * this.edad;
+        return seguroDelConductor_precio * this.edad;
     }
     
     public int getEdad() {
@@ -27,21 +27,21 @@ public class Asegurado {
     }
 
     public double getCostoTotal(){
-        return this.promo.AplicarPromo(getVehiculosConPoliza());
+        return this.getCostosSeguros() - this.promo.AplicarPromo(this);
     }
 
+    public double getCostosSeguros () {
+        return this.vehiculos.stream().mapToDouble( v -> v.getCostoSeguro()).sum();
+    }
     public void setPromo (PromocionStrategy promo) {
         this.promo=promo; 
     }
 
-    public List<Vehiculo> getVehiculosConPoliza(){
-        return vehiculos.stream()
-                        .filter(Vehiculo::tieneSeguro)
-                        .collect(Collectors.toList());
-
-    }
-
     public void setVehiculos (List<Vehiculo> vehiculos) {
         this.vehiculos=vehiculos;
+    }
+
+    public double CincuentaPorcientoSeguroMasEconomico(){
+        return this.vehiculos.stream().mapToDouble(vehiculo -> vehiculo.getCostoSeguro()).min().orElse(0);
     }
 }

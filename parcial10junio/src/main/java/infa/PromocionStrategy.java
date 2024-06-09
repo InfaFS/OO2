@@ -5,5 +5,5 @@ import java.util.List;
 
 public abstract class PromocionStrategy {
     
-    public abstract double AplicarPromo(List<Vehiculo> vehiculos);
+    public abstract double AplicarPromo(Asegurado asegurado);
 }

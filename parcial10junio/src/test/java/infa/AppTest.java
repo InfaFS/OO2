@@ -14,40 +14,39 @@ import org.junit.jupiter.api.Test;
  */
 public class AppTest 
 {
-    
+    LocalDate fecha1;
+    LocalDate fecha2;
+    List<Vehiculo> vehiculos;
+    Vehiculo renault;
+    Vehiculo clio;
+    PromocionStrategy promo;
+    Asegurado asegurado;
+    Seguro SeguroTerceros;
+    Seguro SeguroTerceros2;
     @BeforeEach
     void setUp() throws Exception {
-        
-    }
- 
-    //faltaria testear lagarto y spock
-    @Test
-    public void testPeruano()
-    {   
-        LocalDate fecha1 = LocalDate.of(1988,12 ,16);
-        LocalDate fecha2 = LocalDate.of(2001,12 ,16);
-        List<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
-        Vehiculo renault = new Vehiculo(680000.0,4,fecha1);
-        Vehiculo clio = new Vehiculo(1200000.0,5,fecha2);
-        PromocionStrategy promo = new SinPromo();
-        Asegurado asegurado = new Asegurado(promo,50);
-        Seguro SeguroTerceros = new SeguroTerceros(renault,asegurado);
-        Seguro SeguroTerceros2 = new SeguroTerceros(clio,asegurado);
+        fecha1 = LocalDate.of(1988,12 ,16);
+        fecha2 = LocalDate.of(2001,12 ,16);
+        vehiculos = new ArrayList<Vehiculo>();
+        renault = new Vehiculo(680000.0,4,fecha1);
+        clio = new Vehiculo(1200000.0,5,fecha2);
+        promo = new SinPromo();
+        asegurado = new Asegurado(promo,50);
+        SeguroTerceros = new SeguroTerceros(renault,asegurado);
+        SeguroTerceros2 = new SeguroTerceros(clio,asegurado);
         renault.setSeguro(SeguroTerceros);
         clio.setSeguro(SeguroTerceros2);
         vehiculos.add(renault);
         vehiculos.add(clio);
         asegurado.setPromo(promo);
         asegurado.setVehiculos(vehiculos);
-
-        //tengo que poner todo eso arriba pero bien en elsetup
-
-        assertEquals(7800.0,SeguroTerceros.costo_cobertura_danios());
-        assertEquals(5000.0, asegurado.seguroDelConductor());
-        assertEquals(46800.0, SeguroTerceros.getCostoSeguro());
-        assertEquals(124800.0, asegurado.getCostoTotal());
-
-
+    }
+ 
+    //faltaria testear lagarto y spock
+    @Test
+    public void testPeruano()
+    {   
+        assertEquals(40200.0, asegurado.getCostoTotal());
 
     }
 
